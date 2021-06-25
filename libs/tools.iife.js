@@ -1,15 +1,12 @@
 /*!
-* @ufin/ufin-tools 0.0.0-Beta03 (https://github.com/lsxlsxxslxsl/baselib)
-* API https://github.com/lsxlsxxslxsl/baselib/blob/master/doc/api.md
-* Copyright 2017-2021 lsxlsxxslxsl. All Rights Reserved
-* Licensed under MIT (https://github.com/lsxlsxxslxsl/baselib/blob/master/LICENSE)
+* @ufin/ufin-tools 0.0.0-Beta04 (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools.git)
+* API https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/README.md
+* Copyright 2021-2021 jed. All Rights Reserved
+* Licensed under MIT (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/LICENSE)
 */
 
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.tools = {}));
-}(this, (function (exports) { 'use strict';
+var tools = (function (exports) {
+  'use strict';
 
   /** Used for built-in method references. */
   var objectProto$6 = Object.prototype;
@@ -1945,4 +1942,6 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+  return exports;
+
+}({}));

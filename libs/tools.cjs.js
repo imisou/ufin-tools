@@ -5,6 +5,10 @@
 * Licensed under MIT (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/LICENSE)
 */
 
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 /** Used for built-in method references. */
 var objectProto$6 = Object.prototype;
 
@@ -1761,7 +1765,7 @@ const EmailRegexp = /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\u
 const IPRegexp = /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/;
 
 // 浏览器的类型
-var BrowserType;
+exports.BrowserType = void 0;
 (function (BrowserType) {
     BrowserType["Chrome"] = "Chrome";
     BrowserType["Safari"] = "Safari";
@@ -1774,7 +1778,7 @@ var BrowserType;
     BrowserType["IE8"] = "IE8";
     BrowserType["IE7"] = "IE7";
     BrowserType["IEOld"] = "IE7\u4EE5\u4E0B";
-})(BrowserType || (BrowserType = {}));
+})(exports.BrowserType || (exports.BrowserType = {}));
 /**
  * @desc 获取当前浏览器的类型
  *
@@ -1794,31 +1798,31 @@ const getBrowser = () => {
         reIE.test(userAgent);
         const fIEVersion = parseFloat(RegExp.$1);
         if (fIEVersion === 7)
-            return BrowserType.IE7;
+            return exports.BrowserType.IE7;
         if (fIEVersion === 8)
-            return BrowserType.IE8;
+            return exports.BrowserType.IE8;
         if (fIEVersion === 9)
-            return BrowserType.IE9;
+            return exports.BrowserType.IE9;
         if (fIEVersion === 10)
-            return BrowserType.IE10;
-        return BrowserType.IEOld; // IE版本过低
+            return exports.BrowserType.IE10;
+        return exports.BrowserType.IEOld; // IE版本过低
     }
     if (isIE11)
-        return BrowserType.IE11;
+        return exports.BrowserType.IE11;
     if (isEdge)
-        return BrowserType.Edge;
+        return exports.BrowserType.Edge;
     if (isFF)
-        return BrowserType.FF;
+        return exports.BrowserType.FF;
     if (isOpera)
-        return BrowserType.Opera;
+        return exports.BrowserType.Opera;
     if (isSafari)
-        return BrowserType.Safari;
+        return exports.BrowserType.Safari;
     if (isChrome)
-        return BrowserType.Chrome;
+        return exports.BrowserType.Chrome;
 };
 
 // 系统平台名称
-var BrowserDetectOS;
+exports.BrowserDetectOS = void 0;
 (function (BrowserDetectOS) {
     BrowserDetectOS["Mac"] = "mac";
     BrowserDetectOS["Android"] = "android";
@@ -1826,7 +1830,7 @@ var BrowserDetectOS;
     BrowserDetectOS["Linux"] = "linux";
     BrowserDetectOS["Window"] = "window";
     BrowserDetectOS["Other"] = "other";
-})(BrowserDetectOS || (BrowserDetectOS = {}));
+})(exports.BrowserDetectOS || (exports.BrowserDetectOS = {}));
 /**
  * @desc 获取当前系统类型
  * @returns BrowserDetectOS 'mac' | 'android' | 'ios' | 'linux' | 'window' | 'other'
@@ -1839,39 +1843,39 @@ const getOs = () => {
         navigator.platform === 'Macintosh' ||
         navigator.platform === 'MacIntel';
     if (isMac)
-        return BrowserDetectOS.Mac;
+        return exports.BrowserDetectOS.Mac;
     const isLinux = String(navigator.platform).indexOf('Linux') > -1;
     if (isLinux) {
         const isAndroid = sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('Adr') > -1;
         if (isAndroid) {
-            return BrowserDetectOS.Android;
+            return exports.BrowserDetectOS.Android;
         }
         const isiOS = !!sUserAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios终端
         if (isiOS) {
-            return BrowserDetectOS.Ios;
+            return exports.BrowserDetectOS.Ios;
         }
-        return BrowserDetectOS.Linux;
+        return exports.BrowserDetectOS.Linux;
     }
     if (isWin) {
         const isAndroid = sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('Adr') > -1;
         if (isAndroid) {
-            return BrowserDetectOS.Android;
+            return exports.BrowserDetectOS.Android;
         }
         const isiOS = !!sUserAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios终端
         if (isiOS) {
-            return BrowserDetectOS.Ios;
+            return exports.BrowserDetectOS.Ios;
         }
-        return BrowserDetectOS.Window;
+        return exports.BrowserDetectOS.Window;
     }
     const isAndroid = sUserAgent.indexOf('Android') > -1 || sUserAgent.indexOf('Adr') > -1;
     if (isAndroid) {
-        return BrowserDetectOS.Android;
+        return exports.BrowserDetectOS.Android;
     }
     const isiOS = !!sUserAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); // ios终端
     if (isiOS) {
-        return BrowserDetectOS.Ios;
+        return exports.BrowserDetectOS.Ios;
     }
-    return BrowserDetectOS.Other;
+    return exports.BrowserDetectOS.Other;
 };
 
 /**
@@ -1907,4 +1911,32 @@ function setTitle(title, appTitle = 'ufin') {
     }
 }
 
-export { BrowserDetectOS, BrowserType, EmailRegexp, IPRegexp, addClass, cookies, formatChinese, getBrowser, getOs, getStyle, getUUID, getUrlQuery, hasClass, isArray, isBoolean, isEmptyValue, isFunction, isIos, isNil, isNull, isNumber, isObject, isPC, isString, isSymbol, isUndefined, random, removeClass, setDocumentTitle, setStyle, setTitle };
+exports.EmailRegexp = EmailRegexp;
+exports.IPRegexp = IPRegexp;
+exports.addClass = addClass;
+exports.cookies = cookies;
+exports.formatChinese = formatChinese;
+exports.getBrowser = getBrowser;
+exports.getOs = getOs;
+exports.getStyle = getStyle;
+exports.getUUID = getUUID;
+exports.getUrlQuery = getUrlQuery;
+exports.hasClass = hasClass;
+exports.isArray = isArray;
+exports.isBoolean = isBoolean;
+exports.isEmptyValue = isEmptyValue;
+exports.isFunction = isFunction;
+exports.isIos = isIos;
+exports.isNil = isNil;
+exports.isNull = isNull;
+exports.isNumber = isNumber;
+exports.isObject = isObject;
+exports.isPC = isPC;
+exports.isString = isString;
+exports.isSymbol = isSymbol;
+exports.isUndefined = isUndefined;
+exports.random = random;
+exports.removeClass = removeClass;
+exports.setDocumentTitle = setDocumentTitle;
+exports.setStyle = setStyle;
+exports.setTitle = setTitle;

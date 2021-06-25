@@ -4,6 +4,9 @@
   "description": "tools",
   "main": "libs/tools.min.js",
   "types": "libs/index.d.ts",
+  "module": "libs/tools.esm.js",
+  "unpkg": "libs/tools.iife.min.js",
+  "jsdelivr": "libs/tools.iife.min.js",
   "repository": {
     "type": "git",
     "url": ""
@@ -13,9 +16,11 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && npm run build:umd && npm run build:esm",
+    "build": "npm run clean && npm run build:umd && npm run build:esm && npm run build:cjs && npm run build:iife" ,
     "build:umd": "rollup -c build/rollup.umd.config.js",
     "build:esm": "rollup -c ./build/rollup.esm.config.js",
+    "build:cjs": "rollup -c ./build/rollup.cjs.config.js",
+    "build:iife": "rollup -c ./build/rollup.iife.config.js",
     "test": "jest --no-cache --verbose",
     "clean": "rimraf ./libs"
   },
