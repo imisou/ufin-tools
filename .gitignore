@@ -22,21 +22,9 @@ yarn.lock
 
 # IDE
 /.idea
-
-lib/
-es/
-dist/
-build/
 .vscode
 .history
 
 # publish
 *.tgz
 
-/src/icons
-/*.js
-/*.d.ts
-!.jest.js
-!Icon.d.ts
-!.fatherrc.js
-!.eslintrc.js
