@@ -9,7 +9,7 @@ export default {
   // 入口函数
   input: config.input,
 
-  // external: ['lodash', 'vue'],
+  external: ['lodash', 'vue', 'dayjs'],
 
   output: {
     file: `libs/${config.name}.js`,
@@ -46,8 +46,6 @@ export default {
       tsconfigOverride: { compilerOptions: { module: 'ES2015' } },
 
       tsconfig: resolve(__dirname, '../tsconfig.json'),
-
-
     }), // 将 TypeScript 转换为 JavaScript
   ],
 

@@ -9,6 +9,12 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var dayjs = require('dayjs');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var dayjs__default = /*#__PURE__*/_interopDefaultLegacy(dayjs);
+
 /** Used for built-in method references. */
 var objectProto$6 = Object.prototype;
 
@@ -1911,11 +1917,25 @@ function setTitle(title, appTitle = 'ufin') {
     }
 }
 
+/**
+ * 时间格式化
+ * @description 时间格式化方法
+ * @param  { String | Number} time
+ * @param { String }  fmt
+ * @returns {String} 格式化后的时间
+ */
+const formateTime = (time, fmt) => {
+    if (!time)
+        return '';
+    return dayjs__default['default'](time).format(fmt);
+};
+
 exports.EmailRegexp = EmailRegexp;
 exports.IPRegexp = IPRegexp;
 exports.addClass = addClass;
 exports.cookies = cookies;
 exports.formatChinese = formatChinese;
+exports.formateTime = formateTime;
 exports.getBrowser = getBrowser;
 exports.getOs = getOs;
 exports.getStyle = getStyle;

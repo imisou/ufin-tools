@@ -5,6 +5,8 @@
 * Licensed under MIT (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/LICENSE)
 */
 
+import dayjs from 'dayjs';
+
 /** Used for built-in method references. */
 var objectProto$6 = Object.prototype;
 
@@ -1907,4 +1909,17 @@ function setTitle(title, appTitle = 'ufin') {
     }
 }
 
-export { BrowserDetectOS, BrowserType, EmailRegexp, IPRegexp, addClass, cookies, formatChinese, getBrowser, getOs, getStyle, getUUID, getUrlQuery, hasClass, isArray, isBoolean, isEmptyValue, isFunction, isIos, isNil, isNull, isNumber, isObject, isPC, isString, isSymbol, isUndefined, random, removeClass, setDocumentTitle, setStyle, setTitle };
+/**
+ * 时间格式化
+ * @description 时间格式化方法
+ * @param  { String | Number} time
+ * @param { String }  fmt
+ * @returns {String} 格式化后的时间
+ */
+const formateTime = (time, fmt) => {
+    if (!time)
+        return '';
+    return dayjs(time).format(fmt);
+};
+
+export { BrowserDetectOS, BrowserType, EmailRegexp, IPRegexp, addClass, cookies, formatChinese, formateTime, getBrowser, getOs, getStyle, getUUID, getUrlQuery, hasClass, isArray, isBoolean, isEmptyValue, isFunction, isIos, isNil, isNull, isNumber, isObject, isPC, isString, isSymbol, isUndefined, random, removeClass, setDocumentTitle, setStyle, setTitle };

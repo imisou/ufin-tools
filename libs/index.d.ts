@@ -9,3 +9,4 @@ export * from './regexp';
 export * from './device/getBrowser';
 export * from './device/getOs';
 export * from './title';
+export * from './date/format';

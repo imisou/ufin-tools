@@ -16,7 +16,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && npm run build:umd && npm run build:esm && npm run build:cjs && npm run build:iife" ,
+    "build": "npm run clean && npm run build:umd && npm run build:esm && npm run build:cjs && npm run build:iife",
     "build:umd": "rollup -c build/rollup.umd.config.js",
     "build:esm": "rollup -c ./build/rollup.esm.config.js",
     "build:cjs": "rollup -c ./build/rollup.cjs.config.js",
@@ -60,6 +60,7 @@
     "typescript": "^3.9.10"
   },
   "dependencies": {
+    "dayjs": "^1.10.5",
     "js-cookie": "^2.2.1",
     "lodash": "^4.17.21"
   }
