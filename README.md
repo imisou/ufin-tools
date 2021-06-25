@@ -35,6 +35,6 @@ const browser = tools.getBrowser();
 
 ### is
 
-#### &emsp;&emsp;[isBoolean][isboolean]&emsp;&emsp;判断是否是 Boolean 类型
+#### &emsp;&emsp;[isBoolean][isBoolean]&emsp;&emsp;判断是否是 Boolean 类型
 
 [isBoolean](https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/src/is/base.ts)
