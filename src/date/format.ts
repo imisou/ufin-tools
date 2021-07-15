@@ -7,7 +7,7 @@ import dayjs from 'dayjs';
  * @param { String }  fmt
  * @returns {String} 格式化后的时间
  */
-export const formateTime = (time: string | number, fmt?: 'YYYY-MM-DD HH:mm:ss'): string => {
+export const formateTime = (time: string | number, fmt: string = 'YYYY-MM-DD HH:mm:ss'): string => {
   if (!time) return '';
   return dayjs(time).format(fmt);
 };

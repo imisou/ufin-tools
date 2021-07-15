@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./types",
+    "outDir": "./libs",
     "sourceMap": false,
     "target": "esnext",
     "module": "esnext",
-
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": false,
@@ -14,23 +14,13 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
-    "types": ["node", "jest"],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "types": ["node", "jest"]
   },
   "include": ["./src"],
-  "typings": "./typings/index.d.ts",
   "exclude": [
-    "node_modules",
     "build",
-    "scripts",
-    "libs",
-    "webpack",
     "jest",
     "src/setupTests.ts",
-    "tslint:latest",
-    "tslint-config-prettier",
     "**/**/*.spec.ts"
   ]
 }

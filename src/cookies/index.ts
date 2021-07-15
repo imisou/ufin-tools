@@ -45,14 +45,14 @@ export type CookiesGetAll = () => { [key: string]: string };
 
 export type CookiesRemove = (name: string, path?: string) => void;
 
-export interface Cookies {
+export interface ICookies {
   get: CookiesGet;
   set: CookiesSet;
   getAll: CookiesGetAll;
   remove: CookiesRemove;
 }
 
-const cookies: Partial<Cookies> = {};
+const cookies: Partial<ICookies> = {};
 
 // 默认配置信息
 const DEFAULT_COOKIE_OPTIONS = {
@@ -107,4 +107,6 @@ cookies.remove = function (name: string = 'default', path = DEFAULT_COOKIE_OPTIO
   });
 };
 
-export default cookies as Cookies;
+export {
+  cookies as ICookies;
+}

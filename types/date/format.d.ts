@@ -5,4 +5,4 @@
  * @param { String }  fmt
  * @returns {String} 格式化后的时间
  */
-export declare const formateTime: (time: string | number, fmt?: "YYYY-MM-DD HH:mm:ss" | undefined) => string;
+export declare const formateTime: (time: string | number, fmt?: string) => string;

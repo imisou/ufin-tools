@@ -1,7 +1,6 @@
 export * from './is/index';
 
-import cookies from './cookies';
-export { cookies };
+import * from './cookies/index';
 
 export * from './number/index';
 
@@ -9,14 +8,16 @@ export * from './class/index';
 
 export * from './style/index';
 
-export * from './url';
+export * from './url/index';
 
-export * from './regexp';
+export * from './regexp/index';
 
 export * from './device/getBrowser';
 
 export * from './device/getOs';
 
-export * from './title';
+export * from './title/index';
 
 export * from './date/format';
+
+export * from './date/relativeTime';

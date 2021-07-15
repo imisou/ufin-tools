@@ -2,7 +2,7 @@
  * @description 设置页面的标题  [title]
  * @param {string} title title内容
  */
-export function setDocumentTitle(title: string): void {
+ export function setDocumentTitle(title: string): void {
   document.title = title;
   const ua = navigator.userAgent;
   const regex = /\bMicroMessenger\/([\d.]+)/;

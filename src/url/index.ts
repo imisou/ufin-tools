@@ -269,10 +269,11 @@ const url: Url = (function () {
 interface UrlQueryData {
   [propName: string]: string;
 }
+
 /**
  * 获取Url中的参数，并转换成对象类型
  * @param url
- * @returns
+ * @returns Object
  */
 export const getUrlQuery = (urlstr?: string): UrlQueryData => {
   urlstr = !urlstr ? window.location.href : urlstr;

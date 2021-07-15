@@ -35,11 +35,11 @@ export declare type CookiesGetAll = () => {
     [key: string]: string;
 };
 export declare type CookiesRemove = (name: string, path?: string) => void;
-export interface Cookies {
+export interface ICookies {
     get: CookiesGet;
     set: CookiesSet;
     getAll: CookiesGetAll;
     remove: CookiesRemove;
 }
-declare const _default: Cookies;
+declare const _default: ICookies;
 export default _default;

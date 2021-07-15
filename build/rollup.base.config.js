@@ -3,13 +3,14 @@ import * as config from './config';
 import nodeResolve from 'rollup-plugin-node-resolve'; //加载查找外部模块
 import commonjs from 'rollup-plugin-commonjs'; //加载查找外部模块
 import typescript from 'rollup-plugin-typescript2';
+import babel from 'rollup-plugin-babel';
 import { resolve } from 'path';
 
 export default {
   // 入口函数
   input: config.input,
 
-  external: ['lodash', 'vue', 'dayjs'],
+  external: ['lodash', 'vue'],
 
   output: {
     file: `libs/${config.name}.js`,
@@ -36,17 +37,29 @@ export default {
       extensions: config.extensions,
     }),
 
-    commonjs(),
+    commonjs({
+      //  commonjs模块支持
+      include: 'node_modules/**', // 包括
+      exclude: [], // 排除
+    }),
 
     typescript({
       // 如果 tsconfig 中的 declarationDir 没有定义，则优先使用 package.json 中的 types 或 typings 定义的目录， 默认值：outputDir
       // declarationDir: config.declarationDir,
       // 用来给 输出目录 outDir 提供源文件目录结构的，以便生成的文件中的导入导出能够正确地访问；
       // rootDir: dirname(config.input),
-      tsconfigOverride: { compilerOptions: { module: 'ES2015' } },
-
+      // tsconfigOverride: { compilerOptions: { module: 'ES2015' } },
       tsconfig: resolve(__dirname, '../tsconfig.json'),
+
+      useTsconfigDeclarationDir: true,
     }), // 将 TypeScript 转换为 JavaScript
+
+    babel({
+      extensions: ['.js', '.ts'],
+      runtimeHelpers: true,
+      // 运行babel配置
+      exclude: 'node_modules/**', // 不打包node_modules中的文件
+    }),
   ],
 
   // extensions: config.extensions,

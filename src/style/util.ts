@@ -2,7 +2,7 @@ const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 
 // @ts-ignore
-export const ieVersion = Number(document.documentMode);
+export const ieVersion = Number(document?.documentMode);
 
 export const camelCase = (name: string): string => {
   return name

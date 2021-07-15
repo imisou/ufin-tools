@@ -8,7 +8,7 @@ const esmRollupBaseConfig = merge({}, baseRollupConfig, {
   output: {
     format: 'es',
     name: config.name,
-  },
+  }
 });
 
 const result = [

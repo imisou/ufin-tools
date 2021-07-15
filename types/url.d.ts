@@ -63,7 +63,7 @@ interface UrlQueryData {
 /**
  * 获取Url中的参数，并转换成对象类型
  * @param url
- * @returns
+ * @returns Object
  */
 export declare const getUrlQuery: (urlstr?: string | undefined) => UrlQueryData;
 export default url;

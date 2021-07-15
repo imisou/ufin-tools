@@ -1,44 +1,44 @@
 {
   "name": "@ufin/ufin-tools",
-  "version": "0.0.0-Beta04",
+  "version": "0.0.0-beta.2",
   "description": "tools",
-  "main": "libs/tools.min.js",
+  "main": "libs/tools.esm.js",
   "types": "libs/index.d.ts",
-  "module": "libs/tools.esm.js",
-  "unpkg": "libs/tools.iife.min.js",
-  "jsdelivr": "libs/tools.iife.min.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://git.code.tencent.com/ucall/npm_ucall/ufin-tools.git"
   },
   "contributors": [
     "jed <497877853@qq.com>"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "npm run clean && npm run build:umd && npm run build:esm && npm run build:cjs && npm run build:iife",
+    "build": "npm run clean && npm run build:umd && npm run build:esm && npm run build:cjs && npm run build:iife && npm run api",
     "build:umd": "rollup -c build/rollup.umd.config.js",
     "build:esm": "rollup -c ./build/rollup.esm.config.js",
     "build:cjs": "rollup -c ./build/rollup.cjs.config.js",
     "build:iife": "rollup -c ./build/rollup.iife.config.js",
     "test": "jest --no-cache --verbose",
-    "clean": "rimraf ./libs"
+    "api": "api-extractor run",
+    "clean": "rimraf ./libs && rimraf ./types"
   },
   "files": [
     "libs",
-    "src",
-    "tests"
+    "types"
   ],
   "publishConfig": {
-    "registry": "http://192.168.0.178:8081/repository/npm-hosted/"
+    "registry": "http://192.168.0.239:8081/repository/npm-hosted/"
   },
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/core": "7",
+    "@babel/plugin-proposal-export-default-from": "^7.14.5",
+    "@babel/plugin-transform-object-assign": "^7.14.5",
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-env": "7",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/runtime": "^7.1.2",
+    "@microsoft/api-extractor": "^7.16.1",
     "@types/expect": "^24.3.0",
     "@types/jest": "^23.3.5",
     "@types/js-cookie": "^2.2.6",
@@ -50,6 +50,7 @@
     "jest": "^23.6.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.2",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -57,6 +58,7 @@
     "rollup-plugin-uglify": "^6.0.4",
     "ts-jest": "^23.10.4",
     "ts-node": "^10.0.0",
+    "tslib": "^2.3.0",
     "typescript": "^3.9.10"
   },
   "dependencies": {
