@@ -62,15 +62,32 @@ interface UrlQueryData {
 }
 /**
  * 获取Url中的参数，并转换成对象类型
+ *
+ * @example
+ *  import { getUrlQuery } from "ufin-tools"
+ *  const queryObjectData = getUrlQuery()
+ *
+ * @example
+ *  import { getUrlQuery } from "ufin-tools"
+ *  const queryObjectData = getUrlQuery("http://www.baidu.com?name=2")
+ *
  * @param url  URL 地址
  * @returns Object
  */
 export declare const getUrlQuery: (urlstr?: string) => UrlQueryData;
 /**
  * 根据Name获取Url中的对应的参数
+ *
+ * @example
+ *  import { getUrlQueryByName } from "ufin-tools"
+ *  const val = getUrlQueryByName("name")
+ * @example
+ *  import { getUrlQueryByName } from "ufin-tools"
+ *  const val1 = getUrlQueryByName("name" , "http://www.baidu.com?name=2")
+ *
  * @param { String } name  属性的name
  * @param { String }  urlStr  URL 地址
- * @returns string
+ * @returns string | undefined
  */
-export declare const getUrlQueryByName: (name?: string, urlStr?: string) => string;
+export declare const getUrlQueryByName: (name?: string, urlstr?: string) => string | undefined;
 export {};
