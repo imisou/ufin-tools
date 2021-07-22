@@ -7,20 +7,16 @@
     "module": "esnext",
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
+    "noImplicitAny": false,
     "declaration": true,
     "declarationMap": false,
     "declarationDir": "./types",
-    "strict": true,
+    "strict": false,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["esnext", "dom"],
     "types": ["node", "jest"]
   },
   "include": ["./src"],
-  "exclude": [
-    "build",
-    "jest",
-    "src/setupTests.ts",
-    "**/**/*.spec.ts"
-  ]
+  "exclude": ["build", "jest", "**/**/*.spec.ts"]
 }

@@ -56,14 +56,21 @@
 
  */
 declare type Url = (arg: string | number, url?: string) => string;
-declare const url: Url;
+export declare const url: Url;
 interface UrlQueryData {
     [propName: string]: string;
 }
 /**
  * 获取Url中的参数，并转换成对象类型
- * @param url
+ * @param url  URL 地址
  * @returns Object
  */
-export declare const getUrlQuery: (urlstr?: string | undefined) => UrlQueryData;
-export default url;
+export declare const getUrlQuery: (urlstr?: string) => UrlQueryData;
+/**
+ * 根据Name获取Url中的对应的参数
+ * @param { String } name  属性的name
+ * @param { String }  urlStr  URL 地址
+ * @returns string
+ */
+export declare const getUrlQueryByName: (name?: string, urlStr?: string) => string;
+export {};

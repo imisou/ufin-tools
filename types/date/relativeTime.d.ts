@@ -19,7 +19,7 @@ export declare const isEarly: (timeStamp: number, currentTime: number) => boolea
  * @param { RelativeTimeOptions } options 配置
  * @returns { String } 时间差
  */
-export declare const relativeTime: (origin: Time, target?: string | number | Date | undefined, options?: {
+export declare const relativeTime: (origin: Time, target?: Time, options?: {
     before: string;
     after: string;
     just: string;

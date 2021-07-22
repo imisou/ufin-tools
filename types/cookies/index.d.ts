@@ -41,5 +41,4 @@ export interface ICookies {
     getAll: CookiesGetAll;
     remove: CookiesRemove;
 }
-declare const _default: ICookies;
-export default _default;
+export declare const cookies: Partial<ICookies>;

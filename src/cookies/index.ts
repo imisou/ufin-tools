@@ -52,7 +52,7 @@ export interface ICookies {
   remove: CookiesRemove;
 }
 
-const cookies: Partial<ICookies> = {};
+export const cookies: Partial<ICookies> = {};
 
 // 默认配置信息
 const DEFAULT_COOKIE_OPTIONS = {
@@ -106,7 +106,3 @@ cookies.remove = function (name: string = 'default', path = DEFAULT_COOKIE_OPTIO
     path,
   });
 };
-
-export {
-  cookies as ICookies;
-}

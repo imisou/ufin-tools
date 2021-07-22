@@ -1,6 +1,6 @@
 export * from './is/index';
 
-import * from './cookies/index';
+export * from './cookies/index';
 
 export * from './number/index';
 
