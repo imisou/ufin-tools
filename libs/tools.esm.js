@@ -1090,6 +1090,28 @@ var isIos = function isIos() {
 //   return false;
 // };
 
+var defineProperty = createCommonjsModule(function (module) {
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
+module.exports["default"] = module.exports, module.exports.__esModule = true;
+});
+
+var _defineProperty = unwrapExports(defineProperty);
+
 var _extends_1 = createCommonjsModule(function (module) {
 function _extends() {
   module.exports = _extends = Object.assign || function (target) {
@@ -1115,28 +1137,6 @@ module.exports["default"] = module.exports, module.exports.__esModule = true;
 });
 
 var _extends = unwrapExports(_extends_1);
-
-var defineProperty = createCommonjsModule(function (module) {
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-module.exports["default"] = module.exports, module.exports.__esModule = true;
-});
-
-var _defineProperty = unwrapExports(defineProperty);
 
 var js_cookie = createCommonjsModule(function (module, exports) {
 (function (factory) {
@@ -1296,12 +1296,19 @@ var js_cookie = createCommonjsModule(function (module, exports) {
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var cookies = {}; // 默认配置信息
 
 var DEFAULT_COOKIE_OPTIONS = {
   path: '',
   expires: 1,
   prefix: 'ufin'
+};
+/**
+ * 初始化Cookie的配置数据
+ * @param option
+ */
+
+var initCookie = function initCookie(option) {
+  _extends(DEFAULT_COOKIE_OPTIONS, option);
 };
 /**
  * @description 存储 cookie 值
@@ -1310,7 +1317,7 @@ var DEFAULT_COOKIE_OPTIONS = {
  * @param {Object} setting cookie setting
  */
 
-cookies.set = function () {
+var setCookie = function setCookie() {
   var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
   var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
   var cookieSetting = arguments.length > 2 ? arguments[2] : undefined;
@@ -1329,8 +1336,7 @@ cookies.set = function () {
  * @param {String} name cookie name
  */
 
-
-cookies.get = function () {
+var getCookieByName = function getCookieByName() {
   var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
   return js_cookie.get("".concat(DEFAULT_COOKIE_OPTIONS.prefix, "-").concat(name));
 };
@@ -1338,8 +1344,7 @@ cookies.get = function () {
  * @description 拿到 cookie 全部的值
  */
 
-
-cookies.getAll = function () {
+var getCookieAll = function getCookieAll() {
   return js_cookie.get();
 };
 /**
@@ -1347,8 +1352,7 @@ cookies.getAll = function () {
  * @param {String} name cookie name
  */
 
-
-cookies.remove = function () {
+var removeCookie = function removeCookie() {
   var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
   var path = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_COOKIE_OPTIONS.path;
   // 删除的时候必须与添加的路径相同  不然  path = '/oa'  下的 数据直接删除是删除不了的
@@ -2192,4 +2196,8 @@ var relativeTime = function relativeTime(origin, target) {
   return resStr;
 };
 
-export { BrowserDetectOS, BrowserType, EmailRegexp, IPRegexp, addClass, cookies, formatChinese, formateTime, getBrowser, getOs, getStyle, getUUID, getUrlQuery, getUrlQueryByName, hasClass, isArray, isBoolean, isEarly, isEmptyValue, isFunction, isIos, isNil, isNull, isNumber, isObject, isPC, isString, isSymbol, isUndefined, random, relativeTime, removeClass, setDocumentTitle, setStyle, setTitle, url };
+var dateUtil = dayjs_min;
+
+var noop = function noop() {};
+
+export { BrowserDetectOS, BrowserType, EmailRegexp, IPRegexp, addClass, dateUtil, formatChinese, formateTime, getBrowser, getCookieAll, getCookieByName, getOs, getStyle, getUUID, getUrlQuery, getUrlQueryByName, hasClass, initCookie, isArray, isBoolean, isEmptyValue, isFunction, isIos, isNil, isNull, isNumber, isObject, isPC, isString, isSymbol, isUndefined, noop, random, relativeTime, removeClass, removeCookie, setCookie, setDocumentTitle, setStyle, setTitle, url };

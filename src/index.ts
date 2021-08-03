@@ -18,6 +18,6 @@ export * from './device/getOs';
 
 export * from './title/index';
 
-export * from './date/format';
+export * from './date/index';
 
-export * from './date/relativeTime';
+export * from "./core/index"

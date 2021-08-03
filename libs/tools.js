@@ -1096,6 +1096,28 @@
 	//   return false;
 	// };
 
+	var defineProperty = createCommonjsModule(function (module) {
+	function _defineProperty(obj, key, value) {
+	  if (key in obj) {
+	    Object.defineProperty(obj, key, {
+	      value: value,
+	      enumerable: true,
+	      configurable: true,
+	      writable: true
+	    });
+	  } else {
+	    obj[key] = value;
+	  }
+
+	  return obj;
+	}
+
+	module.exports = _defineProperty;
+	module.exports["default"] = module.exports, module.exports.__esModule = true;
+	});
+
+	var _defineProperty = unwrapExports(defineProperty);
+
 	var _extends_1 = createCommonjsModule(function (module) {
 	function _extends() {
 	  module.exports = _extends = Object.assign || function (target) {
@@ -1121,28 +1143,6 @@
 	});
 
 	var _extends = unwrapExports(_extends_1);
-
-	var defineProperty = createCommonjsModule(function (module) {
-	function _defineProperty(obj, key, value) {
-	  if (key in obj) {
-	    Object.defineProperty(obj, key, {
-	      value: value,
-	      enumerable: true,
-	      configurable: true,
-	      writable: true
-	    });
-	  } else {
-	    obj[key] = value;
-	  }
-
-	  return obj;
-	}
-
-	module.exports = _defineProperty;
-	module.exports["default"] = module.exports, module.exports.__esModule = true;
-	});
-
-	var _defineProperty = unwrapExports(defineProperty);
 
 	var js_cookie = createCommonjsModule(function (module, exports) {
 	(function (factory) {
@@ -1302,12 +1302,19 @@
 	function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) { symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); } keys.push.apply(keys, symbols); } return keys; }
 
 	function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-	var cookies = {}; // 默认配置信息
 
 	var DEFAULT_COOKIE_OPTIONS = {
 	  path: '',
 	  expires: 1,
 	  prefix: 'ufin'
+	};
+	/**
+	 * 初始化Cookie的配置数据
+	 * @param option
+	 */
+
+	var initCookie = function initCookie(option) {
+	  _extends(DEFAULT_COOKIE_OPTIONS, option);
 	};
 	/**
 	 * @description 存储 cookie 值
@@ -1316,7 +1323,7 @@
 	 * @param {Object} setting cookie setting
 	 */
 
-	cookies.set = function () {
+	var setCookie = function setCookie() {
 	  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
 	  var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
 	  var cookieSetting = arguments.length > 2 ? arguments[2] : undefined;
@@ -1335,8 +1342,7 @@
 	 * @param {String} name cookie name
 	 */
 
-
-	cookies.get = function () {
+	var getCookieByName = function getCookieByName() {
 	  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
 	  return js_cookie.get("".concat(DEFAULT_COOKIE_OPTIONS.prefix, "-").concat(name));
 	};
@@ -1344,8 +1350,7 @@
 	 * @description 拿到 cookie 全部的值
 	 */
 
-
-	cookies.getAll = function () {
+	var getCookieAll = function getCookieAll() {
 	  return js_cookie.get();
 	};
 	/**
@@ -1353,8 +1358,7 @@
 	 * @param {String} name cookie name
 	 */
 
-
-	cookies.remove = function () {
+	var removeCookie = function removeCookie() {
 	  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'default';
 	  var path = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_COOKIE_OPTIONS.path;
 	  // 删除的时候必须与添加的路径相同  不然  path = '/oa'  下的 数据直接删除是删除不了的
@@ -2198,22 +2202,28 @@
 	  return resStr;
 	};
 
+	var dateUtil = dayjs_min;
+
+	var noop = function noop() {};
+
 	exports.EmailRegexp = EmailRegexp;
 	exports.IPRegexp = IPRegexp;
 	exports.addClass = addClass;
-	exports.cookies = cookies;
+	exports.dateUtil = dateUtil;
 	exports.formatChinese = formatChinese;
 	exports.formateTime = formateTime;
 	exports.getBrowser = getBrowser;
+	exports.getCookieAll = getCookieAll;
+	exports.getCookieByName = getCookieByName;
 	exports.getOs = getOs;
 	exports.getStyle = getStyle;
 	exports.getUUID = getUUID;
 	exports.getUrlQuery = getUrlQuery;
 	exports.getUrlQueryByName = getUrlQueryByName;
 	exports.hasClass = hasClass;
+	exports.initCookie = initCookie;
 	exports.isArray = isArray;
 	exports.isBoolean = isBoolean;
-	exports.isEarly = isEarly;
 	exports.isEmptyValue = isEmptyValue;
 	exports.isFunction = isFunction;
 	exports.isIos = isIos;
@@ -2225,9 +2235,12 @@
 	exports.isString = isString;
 	exports.isSymbol = isSymbol;
 	exports.isUndefined = isUndefined;
+	exports.noop = noop;
 	exports.random = random;
 	exports.relativeTime = relativeTime;
 	exports.removeClass = removeClass;
+	exports.removeCookie = removeCookie;
+	exports.setCookie = setCookie;
 	exports.setDocumentTitle = setDocumentTitle;
 	exports.setStyle = setStyle;
 	exports.setTitle = setTitle;

@@ -1,4 +1,4 @@
-# @ufin/ufin-tools
+# ufin-tools
 
 前端代码工具库
 
@@ -11,14 +11,14 @@
 ### npm:
 
 ```bash
-$ npm install @ufin/ufin-tools -S
+$ npm install ufin-tools -S
 ```
 
 1. 完整使用
 
 ```js
 // 完整引入
-const tools = require('@ufin/ufin-tools');
+const tools = require('ufin-tools');
 const browser = tools.getBrowser();
 ```
 
@@ -27,7 +27,7 @@ const browser = tools.getBrowser();
 依赖加载
 
 ```js
-import { getBrowser } from '@ufin/ufin-tools';
+import { getBrowser } from 'ufin-tools';
 const browser = tools.getBrowser();
 ```
 

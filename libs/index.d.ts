@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 /**
  * 为元素添加class
  * @param {HTMLElement} el
@@ -28,13 +30,7 @@ export declare enum BrowserType {
     IEOld = "IE7\u4EE5\u4E0B"
 }
 
-export declare const cookies: Partial<ICookies>;
-
 export declare type CookiesGet = (name: string) => string | undefined;
-
-export declare type CookiesGetAll = () => {
-    [key: string]: string;
-};
 
 /**
  *  cookie 基础组件
@@ -70,7 +66,7 @@ export declare interface CookiesOptions {
 
 export declare type CookiesRemove = (name: string, path?: string) => void;
 
-export declare type CookiesSet = (name: string, value: string | any, cookieSetting?: CookiesOptions) => void;
+export declare const dateUtil: typeof dayjs;
 
 export declare const EmailRegexp: RegExp;
 
@@ -97,6 +93,19 @@ export declare const formateTime: (time: string | number, fmt?: string) => strin
  * @returns ['Chrome'、"Safari"、"Opera"、"FF"、"Edge"、"IE11"、"IE10"、"IE9"、"IE8"、"IE7"、"IE7以下"]
  */
 export declare const getBrowser: () => BrowserType | undefined;
+
+/**
+ * @description 拿到 cookie 全部的值
+ */
+export declare const getCookieAll: () => {
+    [key: string]: string;
+};
+
+/**
+ * @description 拿到 cookie 值
+ * @param {String} name cookie name
+ */
+export declare const getCookieByName: CookiesGet;
 
 /**
  * @desc 获取当前系统类型
@@ -178,12 +187,11 @@ declare interface HTMLElementStyle extends HTMLElement {
     currentStyle: HTMLElementCurrentStyle;
 }
 
-export declare interface ICookies {
-    get: CookiesGet;
-    set: CookiesSet;
-    getAll: CookiesGetAll;
-    remove: CookiesRemove;
-}
+/**
+ * 初始化Cookie的配置数据
+ * @param option
+ */
+export declare const initCookie: (option: Partial<CookiesOptions>) => void;
 
 export declare const IPRegexp: RegExp;
 
@@ -200,8 +208,6 @@ export declare const isArray: (val: any) => boolean;
  * @returns Boolean
  */
 export declare const isBoolean: (val: any) => val is boolean;
-
-export declare const isEarly: (timeStamp: number, currentTime: number) => boolean;
 
 /**
  * 判断val是否是一个空值，如"" , null , undefined , [] , {} ,
@@ -278,6 +284,8 @@ export declare const isSymbol: (val: any) => val is symbol;
  */
 export declare const isUndefined: (val: any) => val is undefined;
 
+export declare const noop: () => void;
+
 /**
  *  获取一个在指定范围内的随机整数
  * @param {*} min  最小范围(包含)
@@ -322,6 +330,20 @@ export declare interface RelativeTimeOptions {
  * @param {String} cls
  */
 export declare function removeClass(el: HTMLElement, cls: string): void;
+
+/**
+ * @description 删除 cookie
+ * @param {String} name cookie name
+ */
+export declare const removeCookie: CookiesRemove;
+
+/**
+ * @description 存储 cookie 值
+ * @param {String} name cookie name
+ * @param {String} value cookie value
+ * @param {Object} setting cookie setting
+ */
+export declare const setCookie: (name?: string, value?: any, cookieSetting?: CookiesOptions) => void;
 
 /**
  * @description 设置页面的标题  [title]
