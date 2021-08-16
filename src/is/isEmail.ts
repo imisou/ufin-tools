@@ -1,7 +1,8 @@
 import { EmailRegexp } from '../regexp';
 
 /**
- * 邮箱格式校验(非严格校验)
+ * 是否为有效的邮箱地址<br>
+ * 名称允许汉字、字母、数字，域名只允许英文域名<br>
  *
  * @param {String} str 检测的值
  * @returns { boolean } 返回true|false

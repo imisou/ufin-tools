@@ -1,27 +1,8 @@
 import loadshIsEmpty from 'lodash/isEmpty';
 
-const toString = Object.prototype.toString;
+export const  toString = Object.prototype.toString;
 
-/**
- * 判断是否是Boolean类型
- * @param val
- * @returns Boolean
- */
-export const isBoolean = (val: any): val is boolean => typeof val === 'boolean';
 
-/**
- * 判断是否是Null类型
- * @param val
- * @returns Boolean
- */
-export const isNull = (val: any): val is null => val === null;
-
-/**
- * 判断是否是undefined类型
- * @param val
- * @returns Boolean
- */
-export const isUndefined = (val: any): val is undefined => val === undefined;
 
 /**
  * 判断是否为 null 或 undefined 类型。

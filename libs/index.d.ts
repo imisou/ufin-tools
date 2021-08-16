@@ -284,6 +284,9 @@ export declare const isSymbol: (val: any) => val is symbol;
  */
 export declare const isUndefined: (val: any) => val is undefined;
 
+/**
+ * 空函数
+ */
 export declare const noop: () => void;
 
 /**

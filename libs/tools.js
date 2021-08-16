@@ -1,5 +1,5 @@
 /*!
-* @ufin/ufin-tools 0.0.0-beta.2 (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools.git)
+* ufin-tools 0.0.1 (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools.git)
 * API https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/README.md
 * Copyright 2021-2021 jed. All Rights Reserved
 * Licensed under MIT (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/LICENSE)
