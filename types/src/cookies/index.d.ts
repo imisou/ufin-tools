@@ -41,11 +41,18 @@ export declare const initCookie: (option: Partial<CookiesOptions>) => void;
  * @param {String} name cookie name
  * @param {String} value cookie value
  * @param {Object} setting cookie setting
+ * @returns undefined
+ * @example
+ * setCookie("token" ,"1232")
  */
 export declare const setCookie: (name?: string, value?: any, cookieSetting?: CookiesOptions) => void;
 /**
  * @description 拿到 cookie 值
  * @param {String} name cookie name
+ * @returns { String } cookie存储的值
+ * @example
+ *
+ * getCookieByName("token")
  */
 export declare const getCookieByName: CookiesGet;
 /**

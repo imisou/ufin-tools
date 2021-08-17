@@ -1,8 +1,9 @@
 
 /**
  * 判断是否是Boolean类型
- * @param val
- * @returns Boolean
+ * @author jed
+ * @param { any } val
+ * @returns  { Boolean }
  *
  * @example
  * isBoolean(true)

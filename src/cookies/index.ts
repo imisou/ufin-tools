@@ -65,6 +65,9 @@ export const initCookie = (option: Partial<CookiesOptions>): void => {
  * @param {String} name cookie name
  * @param {String} value cookie value
  * @param {Object} setting cookie setting
+ * @returns undefined
+ * @example
+ * setCookie("token" ,"1232")
  */
 export const setCookie = function (
   name: string = 'default',
@@ -83,6 +86,10 @@ export const setCookie = function (
 /**
  * @description 拿到 cookie 值
  * @param {String} name cookie name
+ * @returns { String } cookie存储的值
+ * @example
+ *
+ * getCookieByName("token")
  */
 export const getCookieByName: CookiesGet = function (name: string = 'default'): string | undefined {
   return JsCookies.get(`${DEFAULT_COOKIE_OPTIONS.prefix}-${name}`);

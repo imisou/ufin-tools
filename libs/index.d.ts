@@ -104,6 +104,10 @@ export declare const getCookieAll: () => {
 /**
  * @description 拿到 cookie 值
  * @param {String} name cookie name
+ * @returns { String } cookie存储的值
+ * @example
+ *
+ * getCookieByName("token")
  */
 export declare const getCookieByName: CookiesGet;
 
@@ -197,43 +201,206 @@ export declare const IPRegexp: RegExp;
 
 /**
  * 是否是数组类型
- * @param val
- * @returns  Boolean
+ * @author jed
+ * @param { any } val
+ * @returns  { Boolean }
  */
 export declare const isArray: (val: any) => boolean;
 
 /**
  * 判断是否是Boolean类型
- * @param val
- * @returns Boolean
+ * @author jed
+ * @param { any } val
+ * @returns  { Boolean }
+ *
+ * @example
+ * isBoolean(true)
+ * // => true
+ * isBoolean("true")
+ * //=> false
  */
 export declare const isBoolean: (val: any) => val is boolean;
+
+/**
+ * 身份证格式严格校验
+ * @author jed
+ * @param { String } sId   身份证号码
+ * @returns  { Boolean }
+ * @example
+ * // 正确数据-输入18位身份证号且只有数字，例如130701199310302288
+ * isCardID("130701199310302288")
+ * // => true
+ *
+ * // 正确数据_输入18位身份证号且最后一位为X，例如52030219891209794X
+ * isCardID("52030219891209794X")
+ * // => true
+ *
+ * // 错误数据_输入18位身份证号且最后一位为除X外的字母，例如52030219891209794Y
+ * isCardID("52030219891209794Y")
+ * // => false
+ */
+export declare const isCardID: (sId: string) => boolean;
+
+/**
+ * 是否为有效的邮箱地址<br>
+ * 名称允许汉字、字母、数字，域名只允许英文域名<br>
+ *
+ * @param {String} val 检测的值
+ * @returns { boolean } 返回true|false
+ * @example
+ *
+ * isEmail("11063296@qq.com")
+ * // => true
+ * test('isEmail : 正确数据', () => {
+ *   expect(isEmail("11063296@qq.com")).toBe(true);
+ * });
+ *
+ * //
+ * test('isEmail : 2、错误数据-只输入空白、空或者回车 ', () => {
+ *   expect(isEmail("")).toBe(false);
+ *   expect(isEmail(" ")).toBe(false);
+ *   expect(isEmail(`
+ *   `)).toBe(false);
+ * });
+ *
+ * // 3. 错误数据-只输入字母
+ * test('isEmail : 错误数据-只输入字母', () => {
+ *   expect(isEmail("qw")).toBe(false);
+ * });
+ *
+ * // 4. 错误数据-只输入数字
+ * test('isEmail : 错误数据-只输入数字', () => {
+ *   expect(isEmail("123123")).toBe(false);
+ * });
+ * // 5. 错误数据-只输入特殊字符
+ * test('isEmail : 错误数据-只输入特殊字符', () => {
+ *   expect(isEmail("@#$")).toBe(false);
+ * });
+ *
+ * // 6. 错误数据-输入以上数据的组合
+ * test('isEmail : 错误数据-输入以上数据的组合', () => {
+ *   expect(isEmail("1#qq.com")).toBe(false);
+ * });
+ * // 7. 错误数据-缺少@符号，例如email163.com
+ * test('isEmail : 错误数据-缺少@符号，例如email163.com', () => {
+ *   expect(isEmail("email163.com")).toBe(false);
+ * });
+ *
+ * // 8. 错误数据-缺少黑点“.”，例如email@163com
+ * test('isEmail : 错误数据-缺少黑点“.”，例如email@163com', () => {
+ *   expect(isEmail("email@163com")).toBe(false);
+ * });
+ * // 9. 错误数据-缺少com、cn、net、hotmail等，例如：email@163.
+ * test('isEmail : 错误数据-缺少com、cn、net、hotmail等，例如：email@163.', () => {
+ *   expect(isEmail("email@163.")).toBe(false);
+ * });
+ *
+ * // 10. 错误数据-@符号位置不正确，例如：email163@.com、email163.@com、email163.com@等
+ * test('isEmail : 错误数据-@符号位置不正确，例如：email163@.com、email163.@com、email163.com@等', () => {
+ *   expect(isEmail("email163@.com")).toBe(false);
+ *   expect(isEmail("email163.@com")).toBe(false);
+ *   expect(isEmail("email163.com@")).toBe(false);
+ * });
+ * // 11. 错误数据-黑点“.”位置不正确，例如：email.@163.com、email@.163com、email@163com.
+ * test('isEmail : 错误数据-黑点“.”位置不正确，例如：email.@163.com、email@.163com、email@163com.', () => {
+ *   expect(isEmail("email.@163.com")).toBe(false);
+ *   expect(isEmail("email@.163com")).toBe(false);
+ *   expect(isEmail("email@163com.")).toBe(false);
+ * });
+ */
+export declare const isEmail: (val: string) => boolean;
 
 /**
  * 判断val是否是一个空值，如"" , null , undefined , [] , {} ,
  * @param val
  * @returns Boolean
+ * @example
+ *
+ * isEmptyValue([])
+ * // => true
+ * isEmptyValue("")
+ * // => true
+ * isEmptyValue(null)
+ * // => true
+ * isEmptyValue(undefined)
+ * // => true
+ * isEmptyValue(undefined)
+ * // => true
+ * isEmptyValue({})
+ * // => true
+ *
+ * // 错误的数据
+ * isEmptyValue(" ")
+ * // => false
+ * isEmptyValue("1")
+ * // => false
  */
 export declare const isEmptyValue: (val: any) => boolean;
 
 /**
+ * 是否为有效的英文姓名
+ *
+ * @param { String } val
+ * @returns {boolean}
+ * @example
+ *
+ * isEnglishName('James');
+ * // => true
+ *
+ * isEnglishName('Kevin Wayne Durant');
+ * // => true
+ *
+ * isEnglishName('Dirk Nowitzki');
+ * // => true
+ */
+export declare const isEnglishName: (val: string) => boolean;
+
+/**
  * 判断是否是函数类型
  * @param val
- * @returns
+ * @returns { Boolean }
+ * @example
+ * const func = () =>  1;
+ * isFunction(func)
+ * // => true
+ *
+ * const function func() {}
+ * isFunction(func)
+ * // => true
+ *
+ * isFunction("1udr Bide")
+ * // => false
  */
 export declare const isFunction: <T extends Function>(val: any) => val is T;
 
 /**
  * 判断是否是IOS系统 ''
  * @author jed
- * @returns Boolean
+ * @returns { Boolean }
  */
 export declare const isIos: () => boolean;
+
+/**
+ * IP格式校验
+ *
+ * @param {String} str 检测的值
+ * @returns Boolean
+ *
+ */
+export declare const isIP: (str: string) => boolean;
 
 /**
  * 判断是否为 null 或 undefined 类型。
  * @param val
  * @returns Boolean
+ * @example
+ *
+ * isNil(undefined)
+ * // => true
+ * isNil(null)
+ * // => true
+ * isNil("")
+ * // => false
  */
 export declare const isNil: (val: any) => boolean;
 
@@ -241,6 +408,15 @@ export declare const isNil: (val: any) => boolean;
  * 判断是否是Null类型
  * @param val
  * @returns Boolean
+ * @example
+ *
+ * isNull(null)
+ * // => true
+ *
+ * isNull(undefined)
+ * // => false
+ * isNull("")
+ * // => false
  */
 export declare const isNull: (val: any) => val is null;
 
@@ -248,6 +424,20 @@ export declare const isNull: (val: any) => val is null;
  * 判断是否为 number 类型。
  * @param val
  * @returns Boolean
+ * @example
+ *
+ * isNumber(1)
+ * // => true
+ * isNumber(-1)
+ * // => true
+ * isNumber("")
+ * // => false
+ * isNumber("1")
+ * // => false
+ * isNumber(null)
+ * // => false
+ * isNumber(false)
+ * // => false
  */
 export declare const isNumber: (val: any) => val is number;
 
@@ -255,11 +445,29 @@ export declare const isNumber: (val: any) => val is number;
  * 是否是对象类型
  * @param val
  * @returns  Boolean
+ * @example
+ *
+ * isObject({})
+ * // => true
+ * isObject([])
+ * // => true
+ *
+ * isObject(1)
+ * // => false
+ * isObject(true)
+ * // => false
+ * isObject(undefined)
+ * // => false
+ * isObject(null)
+ * // => false
+ *
  */
 export declare const isObject: (val: any) => boolean;
 
 /**
  * 判断当前是否是在PC端 window | mac | linux
+ * @author jed
+ * @returns { Boolean }
  */
 export declare const isPC: () => boolean;
 
@@ -267,6 +475,10 @@ export declare const isPC: () => boolean;
  * 判断是否为 string 类型。
  * @param val
  * @returns Boolean
+ * @example
+ *
+ * isString("")
+ * // => true
  */
 export declare const isString: (val: unknown) => val is string;
 
@@ -274,18 +486,32 @@ export declare const isString: (val: unknown) => val is string;
  * 判断参数的值是否是 Symbol 类型
  * @param val
  * @returns  Boolean
+ * @example
+ *
+ * isSymbol(Symbol(1))
+ * // => true
  */
 export declare const isSymbol: (val: any) => val is symbol;
 
 /**
  * 判断是否是undefined类型
  * @param val
- * @returns Boolean
+ * @returns { Boolean }
+ *
+ * isUndefined(undefined)
+ * // => true
+ *
+ * isUndefined(null)
+ * // => false
+ * isUndefined("")
+ * // => false
  */
 export declare const isUndefined: (val: any) => val is undefined;
 
 /**
  * 空函数
+ *
+ * @returns undefined
  */
 export declare const noop: () => void;
 
@@ -345,6 +571,9 @@ export declare const removeCookie: CookiesRemove;
  * @param {String} name cookie name
  * @param {String} value cookie value
  * @param {Object} setting cookie setting
+ * @returns undefined
+ * @example
+ * setCookie("token" ,"1232")
  */
 export declare const setCookie: (name?: string, value?: any, cookieSetting?: CookiesOptions) => void;
 

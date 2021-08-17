@@ -21,8 +21,9 @@
     "build:cjs": "rollup -c ./build/rollup.cjs.config.js",
     "build:iife": "rollup -c ./build/rollup.iife.config.js",
     "test": "jest --no-cache --verbose",
+    "gen:docs": "./node_modules/.bin/jsdoc -c jsdoc.json",
     "api": "api-extractor run",
-    "clean": "rimraf ./libs && rimraf ./types"
+    "clean": "rimraf ./libs && rimraf ./types && rimraf ./docs"
   },
   "files": [
     "libs"
@@ -45,7 +46,9 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "cross-env": "^7.0.3",
+    "docdash": "^1.2.0",
     "jest": "^23.6.0",
+    "jsdoc": "^3.6.7",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.2",
     "rollup-plugin-babel": "^4.4.0",
