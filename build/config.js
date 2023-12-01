@@ -7,7 +7,6 @@ export const name = 'tools';
 
 export const main = pkg.main;
 
-
 // 输入（入口）文件
 export const input = 'src/index.ts';
 
@@ -15,9 +14,9 @@ export const input = 'src/index.ts';
 export const extensions = ['.ts', '.js'];
 
 export const banner = `/*!
-* ${pkg.name} ${version} (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools.git)
-* API https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/README.md
+* ${pkg.name} ${version} (https://github.com/imisou/ufin-tools.git)
+* API https://github.com/imisou/ufin-tools/blob/master/README.md
 * Copyright 2021-${new Date().getFullYear()} jed. All Rights Reserved
-* Licensed under MIT (https://git.code.tencent.com/ucall/npm_ucall/ufin-tools/blob/master/LICENSE)
+* Licensed under MIT (https://github.com/imisou/ufin-tools/blob/master/LICENSE)
 */
 `;
