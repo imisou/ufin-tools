@@ -1,4 +1,4 @@
-import { isNumber } from './is/base';
+import { isNumber } from '../is/isNumber';
 
 /**
  * 带单位的加减处理

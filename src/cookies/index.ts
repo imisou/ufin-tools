@@ -49,8 +49,20 @@ export type CookiesRemove = (name: string, path?: string) => void;
 const DEFAULT_COOKIE_OPTIONS = {
   path: '',
   expires: 1,
-  prefix: 'ufin',
+  prefix: '',
 } as CookiesOptions;
+
+/**
+ * 获取Cookie的真实名称
+ * @param name cookie的名称
+ * @returns ufin-name ...
+ */
+const getCookieName = (name): string => {
+  if (DEFAULT_COOKIE_OPTIONS.prefix) {
+    return getCookieName(name)
+  }
+  return name
+}
 
 /**
  * 初始化Cookie的配置数据
@@ -65,6 +77,9 @@ export const initCookie = (option: Partial<CookiesOptions>): void => {
  * @param {String} name cookie name
  * @param {String} value cookie value
  * @param {Object} setting cookie setting
+ * @returns undefined
+ * @example
+ * setCookie("token" ,"1232")
  */
 export const setCookie = function (
   name: string = 'default',
@@ -77,15 +92,19 @@ export const setCookie = function (
     expires: 1,
   };
   Object.assign(currentCookieSetting, cookieSetting || {});
-  JsCookies.set(`${DEFAULT_COOKIE_OPTIONS.prefix}-${name}`, value, currentCookieSetting);
+  JsCookies.set(getCookieName(name), value, currentCookieSetting);
 };
 
 /**
  * @description 拿到 cookie 值
  * @param {String} name cookie name
+ * @returns { String } cookie存储的值
+ * @example
+ *
+ * getCookieByName("token")
  */
 export const getCookieByName: CookiesGet = function (name: string = 'default'): string | undefined {
-  return JsCookies.get(`${DEFAULT_COOKIE_OPTIONS.prefix}-${name}`);
+  return JsCookies.get(getCookieName(name));
 };
 
 /**
@@ -104,7 +123,7 @@ export const removeCookie: CookiesRemove = function (
   path = DEFAULT_COOKIE_OPTIONS.path,
 ): void {
   // 删除的时候必须与添加的路径相同  不然  path = '/oa'  下的 数据直接删除是删除不了的
-  JsCookies.remove(`${DEFAULT_COOKIE_OPTIONS.prefix}-${name}`, {
+  JsCookies.remove(getCookieName(name), {
     path,
   });
 };

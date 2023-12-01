@@ -1,6 +1,7 @@
 import path from 'path';
 import typescript from 'rollup-plugin-typescript2';
 import { merge } from 'lodash';
+import execa from 'execa';
 
 export default {
   resolve: dir => {
@@ -21,5 +22,12 @@ export default {
     let result = {};
     result = merge(...args, {});
     return result;
+  },
+
+  run: (bin , args , opts) => {
+    return execa(bin, args, {
+      stdio: 'inherit',
+      ...opts,
+    });
   },
 };

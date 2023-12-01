@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-import { formateTime } from './format';
+import { formatTime } from '../format/formatTime';
 
 type Time = string | number | Date;
 
@@ -90,7 +90,7 @@ export const relativeTime = (
     resStr = Math.floor(diff / 86400000) + options.days + dirStr;
   // 多于29天59分钟59秒，少于364天23小时59分钟59秒，且传入的时间戳早于当前
   else if (diff >= 2623860000 && diff <= 31567860000 && IS_EARLY)
-    resStr = formateTime(originTime, 'MM-dd HH:mm');
-  else resStr = formateTime(originTime, 'yyyy-MM-dd HH:mm');
+    resStr = formatTime(originTime, 'MM-dd HH:mm');
+  else resStr = formatTime(originTime, 'yyyy-MM-dd HH:mm');
   return resStr;
 };

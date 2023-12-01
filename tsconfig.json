@@ -17,6 +17,6 @@
     "lib": ["esnext", "dom"],
     "types": ["node", "jest"]
   },
-  "include": ["./src", "node_modules"],
-  "exclude": ["build", "jest", "**/**/*.spec.ts"]
+  "include": ["./src"],
+  "exclude": ["build", "node_modules" , "jest", "**/**/*.spec.ts"]
 }

@@ -2,9 +2,13 @@
  *  生成一个指定长度的随机数
  * @param { Number } 长度
  * @returns {String} 随机数字符串
- * @example getUUID(11) => '1212asdasdA'
+ *
+ * @example
+ *
+ * uuid(11)
+ * // => '1212asdasdA'
  */
-export const getUUID = (len: number | string = "6"): string => {
+export const uuid = (len: number | string = "6"): string => {
   let uLen = parseInt(String(len), 10);
   // eslint-disable-next-line no-restricted-globals
   uLen = isNaN(uLen) ? 6 : uLen;

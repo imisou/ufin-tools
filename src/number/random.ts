@@ -3,6 +3,11 @@
  * @param {*} min  最小范围(包含)
  * @param {*} max  最大范围(包含)
  * @returns {Number} 整数
+ *
+ * @example
+ *
+ * random(1,99)
+ * // => 88 (可能)
  */
 export const random = (min: number, max: number): number | null => {
   // eslint-disable-next-line no-undef

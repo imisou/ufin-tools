@@ -15,8 +15,16 @@ export enum BrowserType {
 
 /**
  * @desc 获取当前浏览器的类型
+ * @author jed
+ * @returns { BrowserType } ['Chrome'、"Safari"、"Opera"、"FF"、"Edge"、"IE11"、"IE10"、"IE9"、"IE8"、"IE7"、"IE7以下"]
  *
- * @returns ['Chrome'、"Safari"、"Opera"、"FF"、"Edge"、"IE11"、"IE10"、"IE9"、"IE8"、"IE7"、"IE7以下"]
+ * @example
+ *
+ * getBrowser()
+ * // => "Chrome"
+ *
+ * // 内置的枚举对象
+ * getBrowser() === BrowserType.Chrome
  */
 export const getBrowser = (): BrowserType | undefined => {
   const { userAgent } = navigator; // 取得浏览器的userAgent字符串

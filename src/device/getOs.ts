@@ -10,7 +10,14 @@ export enum BrowserDetectOS {
 
 /**
  * @desc 获取当前系统类型
- * @returns BrowserDetectOS 'mac' | 'android' | 'ios' | 'linux' | 'window' | 'other'
+ * @returns { BrowserDetectOS } 'mac' | 'android' | 'ios' | 'linux' | 'window' | 'other'
+ *
+ * @example
+ *
+ * getOs()
+ * // => "mac"
+ *
+ * getOs() === BrowserDetectOS.Mac
  */
 export const getOs = (): BrowserDetectOS => {
   const sUserAgent =
