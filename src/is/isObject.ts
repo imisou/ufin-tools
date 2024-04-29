@@ -1,5 +1,4 @@
-
-import { toString } from "./base";
+import { helperGetTypeInObjectToString } from './base';
 
 /**
  * 是否是对象类型
@@ -24,6 +23,4 @@ import { toString } from "./base";
  * // => false
  *
  */
- export const isObject = (val: any): boolean => {
-  return toString.call(val).slice(8, -1) === 'Object';
-};
+export const isObject = helperGetTypeInObjectToString('Object');

@@ -1,4 +1,4 @@
-import { toString } from "./base";
+import { helperGetTypeInObjectToString } from './base';
 
 /**
  * 是否是数组类型
@@ -14,6 +14,4 @@ import { toString } from "./base";
  * isArray({ 0:1,1:1,length:2 })
  * // => false
  */
- export const isArray = (val: any): boolean => {
-  return toString.call(val).slice(8, -1) === 'Array';
-};
+export const isArray = helperGetTypeInObjectToString('Array');
