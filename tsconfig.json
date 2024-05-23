@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "outDir": "./libs",
+    "outDir": ".",
     "sourceMap": false,
     "target": "esnext",
     "module": "esnext",
@@ -10,13 +10,13 @@
     "noImplicitAny": false,
     "declaration": true,
     "declarationMap": false,
-    "declarationDir": "./types",
+    "declarationDir": "./",
     "strict": false,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "lib": ["esnext", "dom"],
-    "types": ["node", "jest"]
+    "lib": ["esnext", "dom"]
   },
-  "include": ["./src", "node_modules"],
-  "exclude": ["build", "jest", "**/**/*.spec.ts"]
+  "include": ["./src"],
+  "exclude": ["jest", "**/**/*.spec.ts"]
 }
