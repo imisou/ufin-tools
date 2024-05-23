@@ -9,6 +9,8 @@ import { toString } from "./base";
  *
  * isObject({})
  * // => true
+*
+ *
  * isObject([])
  * // => true
  *
